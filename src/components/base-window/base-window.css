@@ -1,4 +1,4 @@
-.window {
+.base-window {
     position: relative;
     float: left;
     padding: 10px;
@@ -10,7 +10,7 @@
     animation: entry 0.1s;
 }
 
-.window .window-title {
+.base-window .base-window-title {
     color: #000;
     margin: 0px;
     padding: 10px;

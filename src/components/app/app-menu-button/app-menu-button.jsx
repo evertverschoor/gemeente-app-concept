@@ -5,8 +5,8 @@ class AppMenuButton extends React.Component {
 
     render() {
         return (
-            <button className={'app-menu-button' + this.additionalClasses}>
-                <img src={this.props.iconUrl} alt={this.props.label}/>
+            <button className={'app-menu-button' + this.additionalClasses} onClick={this.props.onClick}>
+                <img src={this.props.iconUrl} alt={this.props.label} />
                 <p>{this.props.label}</p>
             </button>
         )
