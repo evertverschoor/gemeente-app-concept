@@ -23,17 +23,20 @@ function App() {
             name="Kan vuilnisbak niet openen"
             date="01-13-2020"
             caller="#370051"
-            description="Stuur zsm hulp" />
+            description="Stuur zsm hulp"
+            status="breached" />
           <Incident
             name="Mijn raam is kapotgegooid"
             date="02-13-2020"
             caller="#370052"
-            description="Dit pik ik niet" />
+            description="Dit pik ik niet"
+            status="on-track" />
           <Incident
             name="Autoschade"
             date="03-13-2020"
             caller="#170240"
-            description="Dit pik ik ook niet" />
+            description="Dit pik ik ook niet"
+            status="on-track" />
         </Window>
       </AppContent>
       <AppMenu>
