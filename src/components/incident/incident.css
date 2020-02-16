@@ -1,0 +1,53 @@
+.incident {
+    position: relative;
+    float: left;
+    width: calc(100% - 28px);
+    margin: 10px;
+    padding: 4px;
+    background-color: rgb(248, 248, 248);
+    color: #000;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+    transition: transform 0.1s;
+    cursor: pointer;
+}
+
+.incident:hover {
+    transform: scale(1.05);
+}
+
+.incident p {
+    margin: 0px;
+    font-size: 12px;
+}
+
+.incident .incident-header {
+    position: relative;
+    float: left;
+    padding: 5px;
+    width: calc(100% - 10px);
+}
+
+.incident .incident-description {
+    position: relative;
+    float: left;
+    padding: 5px;
+    width: calc(100% - 10px);
+}
+
+.incident .incident-name {
+    float: left;
+    font-weight: bold;
+}
+
+.incident .incident-date {
+    float: right;
+}
+
+.incident .incident-date a {
+    color: #4A64F0;
+    cursor: pointer;
+}
+
+.incident .incident-date a:hover {
+    text-decoration: underline;
+}
