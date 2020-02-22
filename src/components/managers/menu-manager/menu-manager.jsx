@@ -1,14 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { openWindow, closeWindow } from '../../../actions/index'
+import { openWindow, animateCloseWindow } from '../../../actions/index'
 
 import AppMenuButton from '../../app/app-menu-button/app-menu-button'
 import IncidentsWindow from '../../windows/incidents-window/incidents-window'
 
-import settingsIcon from '../../../icons/settings.png'
-import incidentsIcon from '../../../icons/incidents.png'
-import logOutIcon from '../../../icons/logout.png'
-import contactIcon from '../../../icons/contact.png'
+import settingsIcon from '../../../icons/settings-white.png'
+import incidentsIcon from '../../../icons/incidents-white.png'
+import logOutIcon from '../../../icons/logout-white.png'
+import contactIcon from '../../../icons/contact-white.png'
 
 class MenuManager extends React.Component {
 
@@ -42,7 +42,7 @@ class MenuManager extends React.Component {
 
     onButtonClicked(window) {
         if(this.isSelected(window))
-            this.props.closeWindow(window)
+            this.props.animateCloseWindow(window)
         else
             this.props.openWindow(window)
     }
@@ -63,7 +63,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         openWindow: window => dispatch(openWindow(window)),
-        closeWindow: window => dispatch(closeWindow(window))
+        animateCloseWindow: window => dispatch(animateCloseWindow(window)),
+
     }
 }
 

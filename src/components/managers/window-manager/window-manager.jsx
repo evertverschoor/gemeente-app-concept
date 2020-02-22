@@ -2,6 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import IncidentsWindow from '../../windows/incidents-window/incidents-window'
+import SettingsWindow from '../../windows/settings-window/settings-window'
+import ContactCenterWindow from '../../windows/contact-center-window/contact-center-window'
 
 class WindowManager extends React.Component {
 
@@ -9,6 +11,8 @@ class WindowManager extends React.Component {
         return (
             <>
                 {this.shouldShow(IncidentsWindow) && <IncidentsWindow title="Incidenten" />}
+                {this.shouldShow(SettingsWindow) && <SettingsWindow title="Instellingen" />}
+                {this.shouldShow(ContactCenterWindow) && <ContactCenterWindow title="Contact Center" />}
             </>
         )
     }

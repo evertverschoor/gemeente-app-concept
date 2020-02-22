@@ -1,12 +1,17 @@
 import React from 'react'
 
 import BaseWindow from '../../base-window/base-window'
+import incidentsIcon from '../../../icons/incidents-black.png'
 import Incident from '../../incident/incident'
 
 class IncidentsWindow extends BaseWindow {
 
     static get actionWindowName() {
         return 'incidents'
+    }
+
+    get iconUrl() {
+        return incidentsIcon;
     }
 
     get content() {
