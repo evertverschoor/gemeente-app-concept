@@ -1,13 +1,17 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
+import { mapStateToProps } from '../../base-window/base-window'
 import BaseWindow from '../../base-window/base-window'
-import incidentsIcon from '../../../icons/incidents-black.png'
+
 import Incident from '../../incident/incident'
+import incidentsIcon from '../../../icons/incidents-black.png'
+import { INCIDENTS } from '../window-ids'
 
 class IncidentsWindow extends BaseWindow {
 
-    static get actionWindowName() {
-        return 'incidents'
+    get actionWindowName() {
+        return INCIDENTS
     }
 
     get iconUrl() {
@@ -40,4 +44,4 @@ class IncidentsWindow extends BaseWindow {
     }
 }
 
-export default IncidentsWindow
+export default connect(mapStateToProps)(IncidentsWindow)

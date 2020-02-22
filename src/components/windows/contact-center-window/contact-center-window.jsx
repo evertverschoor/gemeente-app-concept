@@ -1,12 +1,16 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
+import { mapStateToProps } from '../../base-window/base-window'
 import BaseWindow from '../../base-window/base-window'
+
 import contactIcon from '../../../icons/contact-black.png'
+import { CONTACT_CENTER } from '../window-ids'
 
 class ContactCenterWindow extends BaseWindow {
 
-    static get actionWindowName() {
-        return 'contactCenter'
+    get actionWindowName() {
+        return CONTACT_CENTER
     }
 
     get iconUrl() {
@@ -22,4 +26,4 @@ class ContactCenterWindow extends BaseWindow {
     }
 }
 
-export default ContactCenterWindow
+export default connect(mapStateToProps)(ContactCenterWindow)

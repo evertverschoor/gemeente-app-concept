@@ -5,7 +5,7 @@ class BaseWindow extends React.Component {
 
     render() {
         return (
-            <div className="base-window">
+            <div className={this.classNames}>
                 <h4 className="base-window-title">
                     <img className="base-window-icon" src={this.iconUrl} alt={this.props.title}></img>
                     {this.props.title}
@@ -13,6 +13,11 @@ class BaseWindow extends React.Component {
                 {this.content}
             </div>
         )
+    }
+
+    get classNames() {
+        const shouldDisappear = this.props.closingWindows.includes(this.actionWindowName)
+        return `base-window ${shouldDisappear ? 'exit' : ''}`
     }
 
     get content() {
@@ -23,9 +28,13 @@ class BaseWindow extends React.Component {
         throw new Error('Not yet implemented: "static get iconUrl()"!')
     }
 
-    static get actionWindowName() {
-        throw new Error('Not yet implemented: "static get actionWindowName()"!')
+    get actionWindowName() {
+        throw new Error('Not yet implemented: "get actionWindowName()"!')
     }
+}
+
+export const mapStateToProps = state => {
+    return { closingWindows: state.closingWindows }
 }
 
 export default BaseWindow

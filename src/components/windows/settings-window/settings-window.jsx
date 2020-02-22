@@ -1,12 +1,16 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
+import { mapStateToProps } from '../../base-window/base-window'
 import BaseWindow from '../../base-window/base-window'
+
 import settingsIcon from '../../../icons/settings-black.png'
+import { SETTINGS } from '../window-ids'
 
 class SettingsWindow extends BaseWindow {
 
     static get actionWindowName() {
-        return 'settings'
+        return SETTINGS
     }
 
     get iconUrl() {
@@ -16,10 +20,10 @@ class SettingsWindow extends BaseWindow {
     get content() {
         return (
             <>
-               <p>There are settings...</p>
+                <p>There are settings...</p>
             </>
         )
     }
 }
 
-export default SettingsWindow
+export default connect(mapStateToProps)(SettingsWindow)
