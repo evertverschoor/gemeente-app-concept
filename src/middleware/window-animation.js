@@ -1,4 +1,5 @@
-import { ANIMATE_CLOSE_WINDOW, CLOSE_WINDOW } from '../actions/types'
+import { ANIMATE_CLOSE_WINDOW } from '../actions/types'
+import { closeWindow } from '../actions/index'
 
 const windowAnimationMiddleware = store => next => action => {
 
@@ -7,11 +8,8 @@ const windowAnimationMiddleware = store => next => action => {
             next(action)
 
             setTimeout(() => {
-                store.dispatch({
-                    type: CLOSE_WINDOW,
-                    payload: action.payload
-                })
-            }, 100)
+                store.dispatch(closeWindow(action.payload))
+            }, 200)
             break
         default: next(action)
     }

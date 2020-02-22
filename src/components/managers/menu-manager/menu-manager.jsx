@@ -9,7 +9,7 @@ import incidentsIcon from '../../../icons/incidents-white.png'
 import logOutIcon from '../../../icons/logout-white.png'
 import contactIcon from '../../../icons/contact-white.png'
 
-import { INCIDENTS, SETTINGS, CONTACT_CENTER } from '../../windows/window-ids'
+import { INCIDENTS, SETTINGS, CONTACT_CENTER, OPENED } from '../../windows/index'
 
 class MenuManager extends React.Component {
 
@@ -53,12 +53,12 @@ class MenuManager extends React.Component {
     }
 
     isSelected(window) {
-        return this.props.openWindows.includes(window)
+        return this.props.windows[window] === OPENED
     }
 }
 
 const mapStateToProps = state => {
-    return { openWindows: state.openWindows }
+    return { windows: state.windows }
 }
 
 const mapDispatchToProps = dispatch => {

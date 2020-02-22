@@ -5,7 +5,7 @@ import { mapStateToProps } from '../../base-window/base-window'
 import BaseWindow from '../../base-window/base-window'
 
 import contactIcon from '../../../icons/contact-black.png'
-import { CONTACT_CENTER } from '../window-ids'
+import { CONTACT_CENTER } from '../index'
 
 class ContactCenterWindow extends BaseWindow {
 
@@ -26,4 +26,4 @@ class ContactCenterWindow extends BaseWindow {
     }
 }
 
-export default connect(mapStateToProps)(ContactCenterWindow)
+export default connect(mapStateToProps(CONTACT_CENTER))(ContactCenterWindow)

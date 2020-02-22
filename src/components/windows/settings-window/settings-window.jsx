@@ -5,7 +5,7 @@ import { mapStateToProps } from '../../base-window/base-window'
 import BaseWindow from '../../base-window/base-window'
 
 import settingsIcon from '../../../icons/settings-black.png'
-import { SETTINGS } from '../window-ids'
+import { SETTINGS } from '../index'
 
 class SettingsWindow extends BaseWindow {
 
@@ -26,4 +26,4 @@ class SettingsWindow extends BaseWindow {
     }
 }
 
-export default connect(mapStateToProps)(SettingsWindow)
+export default connect(mapStateToProps(SETTINGS))(SettingsWindow)

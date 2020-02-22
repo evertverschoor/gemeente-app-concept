@@ -6,7 +6,7 @@ import BaseWindow from '../../base-window/base-window'
 
 import Incident from '../../incident/incident'
 import incidentsIcon from '../../../icons/incidents-black.png'
-import { INCIDENTS } from '../window-ids'
+import { INCIDENTS } from '../index'
 
 class IncidentsWindow extends BaseWindow {
 
@@ -44,4 +44,4 @@ class IncidentsWindow extends BaseWindow {
     }
 }
 
-export default connect(mapStateToProps)(IncidentsWindow)
+export default connect(mapStateToProps(INCIDENTS))(IncidentsWindow)

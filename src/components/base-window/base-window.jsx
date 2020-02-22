@@ -1,6 +1,8 @@
 import React from 'react'
 import './base-window.css'
 
+import { CLOSING } from '../windows/index'
+
 class BaseWindow extends React.Component {
 
     render() {
@@ -16,7 +18,7 @@ class BaseWindow extends React.Component {
     }
 
     get classNames() {
-        const shouldDisappear = this.props.closingWindows.includes(this.actionWindowName)
+        const shouldDisappear = this.props.window === CLOSING
         return `base-window ${shouldDisappear ? 'exit' : ''}`
     }
 
@@ -33,8 +35,12 @@ class BaseWindow extends React.Component {
     }
 }
 
-export const mapStateToProps = state => {
-    return { closingWindows: state.closingWindows }
+export function mapStateToProps(window) {
+    console.log('mapStateToProps called with:')
+    console.log(window)
+    return state => {
+        return { window: state.windows[window] }
+    }
 }
 
 export default BaseWindow
