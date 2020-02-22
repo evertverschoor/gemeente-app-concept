@@ -1,14 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { openWindow, closeWindow } from '../../../actions/index'
+import { openWindow, animateCloseWindow } from '../../../actions/index'
 
 import AppMenuButton from '../../app/app-menu-button/app-menu-button'
-import IncidentsWindow from '../../windows/incidents-window/incidents-window'
 
-import settingsIcon from '../../../icons/settings.png'
-import incidentsIcon from '../../../icons/incidents.png'
-import logOutIcon from '../../../icons/logout.png'
-import contactIcon from '../../../icons/contact.png'
+import settingsIcon from '../../../icons/settings-white.png'
+import incidentsIcon from '../../../icons/incidents-white.png'
+import logOutIcon from '../../../icons/logout-white.png'
+import contactIcon from '../../../icons/contact-white.png'
+
+import { INCIDENTS, SETTINGS, CONTACT_CENTER, OPENED } from '../../windows/index'
 
 class MenuManager extends React.Component {
 
@@ -17,20 +18,20 @@ class MenuManager extends React.Component {
             <AppMenuButton 
                 iconUrl={incidentsIcon} 
                 label="Incidenten" 
-                onClick={ () => this.onButtonClicked(IncidentsWindow.actionWindowName) }
-                selected={ this.isSelected(IncidentsWindow.actionWindowName) } />
+                onClick={ () => this.onButtonClicked(INCIDENTS) }
+                selected={ this.isSelected(INCIDENTS) } />
 
             <AppMenuButton 
                 iconUrl={settingsIcon} 
                 label="Instellingen" 
-                onClick={ () => this.onButtonClicked('settings') }
-                selected={ this.isSelected('settings') && true} />
+                onClick={ () => this.onButtonClicked(SETTINGS) }
+                selected={ this.isSelected(SETTINGS)} />
 
             <AppMenuButton 
                 iconUrl={contactIcon} 
                 label="Contact Center" 
-                onClick={ () => this.onButtonClicked('contactCenter') }
-                selected={ this.isSelected('contactCenter') && true} />
+                onClick={ () => this.onButtonClicked(CONTACT_CENTER) }
+                selected={ this.isSelected(CONTACT_CENTER)} />
 
             <AppMenuButton 
                 iconUrl={logOutIcon} 
@@ -42,7 +43,7 @@ class MenuManager extends React.Component {
 
     onButtonClicked(window) {
         if(this.isSelected(window))
-            this.props.closeWindow(window)
+            this.props.animateCloseWindow(window)
         else
             this.props.openWindow(window)
     }
@@ -52,18 +53,19 @@ class MenuManager extends React.Component {
     }
 
     isSelected(window) {
-        return this.props.openWindows.includes(window)
+        return this.props.windows[window] === OPENED
     }
 }
 
 const mapStateToProps = state => {
-    return { openWindows: state.openWindows }
+    return { windows: state.windows }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
         openWindow: window => dispatch(openWindow(window)),
-        closeWindow: window => dispatch(closeWindow(window))
+        animateCloseWindow: window => dispatch(animateCloseWindow(window)),
+
     }
 }
 

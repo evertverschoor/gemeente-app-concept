@@ -18,7 +18,7 @@
 }
 
 .app-menu-button.selected, .app-menu-button.selected:hover {
-    background: #620800;
+    background: rgb(197, 55, 23);
 }
 
 .app-menu-button img {
